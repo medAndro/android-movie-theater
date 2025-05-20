@@ -10,7 +10,7 @@ class AdViewHolder(
     private val binding: ItemAdvertisementBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind() {
-        binding.ivAdvertisement.setImageResource(R.drawable.advertisement)
+        binding.imageResourceId = R.drawable.advertisement
     }
 
     companion object {

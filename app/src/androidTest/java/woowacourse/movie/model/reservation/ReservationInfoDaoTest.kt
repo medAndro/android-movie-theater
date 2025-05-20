@@ -5,6 +5,7 @@ import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.Assertions.assertAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import woowacourse.movie.database.AppDatabase
@@ -72,10 +73,17 @@ class ReservationInfoDaoTest {
         // when
         val foundReservation = dao.getReservationById(id.toInt())
 
+//        assertThat(foundReservation.title).isEqualTo("잘못된 이름 A")
+//        assertThat(foundReservation.title).isEqualTo("잘못된 이름 B")
+
         // then
-        assertThat(foundReservation).isNotNull
-        assertThat(foundReservation.title).isEqualTo("너의 이름은.")
-        assertThat(foundReservation.theaterName).isEqualTo("보라매")
+        assertAll(
+            { assertThat(foundReservation).isNotNull },
+            { assertThat(foundReservation.title).isEqualTo("잘못된 이름 1") },
+            { assertThat(foundReservation.title).isEqualTo("너의 이름은.") },
+            { assertThat(foundReservation.title).isEqualTo("잘못된 이름 2") },
+            { assertThat(foundReservation.theaterName).isEqualTo("보라매") },
+        )
     }
 
     @Test

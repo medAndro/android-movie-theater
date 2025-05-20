@@ -6,7 +6,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 object DummyMovieDao : MovieDao {
-    private val movieDao = MovieDaoImpl(DummyMovieDB)
+    private val movieDao = FileBasedMovieDao(DummyMovieDB)
 
     override fun getTheaterNames(): List<String> = movieDao.getTheaterNames()
 

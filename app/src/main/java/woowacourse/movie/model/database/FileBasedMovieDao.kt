@@ -6,7 +6,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import kotlin.collections.forEach
 
-class MovieDaoImpl(
+class FileBasedMovieDao(
     private val database: MovieDatabaseSchema,
 ) : MovieDao {
     override fun getTheaterNames(): List<String> = database.screenings.keys.toList()

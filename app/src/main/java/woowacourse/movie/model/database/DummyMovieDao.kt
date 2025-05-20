@@ -20,10 +20,8 @@ object DummyMovieDao : MovieDao {
 
     override fun getTotalTimeSlotCount(
         theater: Theater,
-        movie: Movie,
-        endDate: LocalDate,
         now: LocalDateTime,
-    ): Int = movieDao.getTotalTimeSlotCount(theater, movie, endDate, now)
+    ): Int = movieDao.getTotalTimeSlotCount(theater, now)
 
     override fun getMovies(theaterName: String): List<Movie> = movieDao.getMovies(theaterName)
 

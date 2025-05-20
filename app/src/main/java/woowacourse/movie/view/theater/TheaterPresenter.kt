@@ -17,12 +17,13 @@ class TheaterPresenter(
             view.dismissView()
             return
         }
+
         val theaterUIModels =
             movieDao
                 .getTheaterNames()
                 .map {
-                    val theater = Theater(it, movieDao.getMovies(it), movieDao)
-                    TheaterUIModel(it, movie, theater.getTotalTimeSlotCount(movie))
+                    val theater = Theater(it, movieDao.getMovies(it))
+                    TheaterUIModel(it, movie, movieDao.getTotalTimeSlotCount(theater))
                 }
         view.showTheaters(theaterUIModels)
     }

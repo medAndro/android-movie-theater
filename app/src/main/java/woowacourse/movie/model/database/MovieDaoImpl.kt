@@ -44,15 +44,16 @@ class MovieDaoImpl(
 
     override fun getTotalTimeSlotCount(
         theater: Theater,
-        movie: Movie,
-        endDate: LocalDate,
         now: LocalDateTime,
     ): Int {
         var date = now.toLocalDate()
         var count = 0
-        while (!date.isAfter(endDate)) {
-            count += getTimeTable(now, date, getScreenTimes(theater.name, movie.title)).size
-            date = date.plusDays(1)
+
+        theater.movies.forEach { movie: Movie ->
+            while (!date.isAfter(movie.endDate)) {
+                count += getTimeTable(now, date, getScreenTimes(theater.name, movie.title)).size
+                date = date.plusDays(1)
+            }
         }
         return count
     }

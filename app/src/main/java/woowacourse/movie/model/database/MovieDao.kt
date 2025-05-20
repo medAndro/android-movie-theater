@@ -18,8 +18,6 @@ interface MovieDao {
 
     fun getTotalTimeSlotCount(
         theater: Theater,
-        movie: Movie,
-        endDate: LocalDate,
         now: LocalDateTime = LocalDateTime.now(),
     ): Int
 

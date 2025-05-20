@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import woowacourse.movie.model.movie.Movie
 
 class MovieAdapter(
-    private val clickListener: MovieClickListener,
+    private val clickListener: MovieReservationListener,
 ) : ListAdapter<Movie, RecyclerView.ViewHolder>(MoviesDiffUtil) {
     override fun getItemCount(): Int {
         val movieCount = super.getItemCount()

@@ -10,7 +10,7 @@ import woowacourse.movie.view.util.ReservationUiFormatter
 
 class MovieViewHolder(
     private val binding: ItemMovieBinding,
-    private val clickListener: MovieClickListener,
+    private val clickListener: MovieReservationListener,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(movie: Movie) {
         binding.tvMovieTitle.text = movie.title
@@ -29,7 +29,7 @@ class MovieViewHolder(
     companion object {
         fun from(
             parent: ViewGroup,
-            clickListener: MovieClickListener,
+            clickListener: MovieReservationListener,
         ): MovieViewHolder {
             val layoutInflater = LayoutInflater.from(parent.context)
             val binding = ItemMovieBinding.inflate(layoutInflater, parent, false)

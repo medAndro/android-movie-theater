@@ -7,7 +7,7 @@ import woowacourse.movie.model.seat.index.Col
 import woowacourse.movie.model.seat.index.Row
 
 @Parcelize
-data class Seats(
+class Seats private constructor(
     private val _seats: MutableSet<Seat>,
 ) : Parcelable {
     val value: List<Seat>
@@ -46,6 +46,6 @@ data class Seats(
     ): Boolean = _seats.removeIf { it.row == row && it.col == col }
 
     companion object {
-        fun create(seats: List<Seat> = emptyList()): Seats = Seats(seats.toMutableSet())
+        fun create(seats: Collection<Seat> = emptyList()): Seats = Seats(seats.toMutableSet())
     }
 }

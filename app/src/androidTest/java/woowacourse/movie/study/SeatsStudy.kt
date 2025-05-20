@@ -10,13 +10,11 @@ import woowacourse.movie.model.seat.index.Row
 @Suppress("ktlint:standard:function-naming")
 class SeatsStudy {
     @Test
-    fun mutableSet_clear_실험() {
-        val mutableSet: MutableSet<Seat> = mutableSetOf()
-        val seats = Seats(mutableSet)
+    fun Seats_내부_컬렉션_수정_불가() {
+        val emptySeatSet: Set<Seat> = setOf()
+        val seats = Seats.create(emptySeatSet)
 
         seats.add(Row(1), Col(3))
         assertThat(seats.size).isEqualTo(1)
-        mutableSet.clear()
-        assertThat(seats.size).isEqualTo(0)
     }
 }

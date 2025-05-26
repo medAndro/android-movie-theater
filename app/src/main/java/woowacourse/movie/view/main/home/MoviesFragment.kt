@@ -51,7 +51,7 @@ class MoviesFragment :
     }
 
     override fun showBottomSheetDialog(movie: Movie) {
-        val bottomSheet = TheaterBottomSheetDialogFragment.Companion.newInstance(movie)
+        val bottomSheet = TheaterBottomSheetDialogFragment.newInstance(movie)
         bottomSheet.show(parentFragmentManager, BOTTOM_SHEET_TAG)
     }
 

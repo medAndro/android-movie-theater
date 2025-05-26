@@ -31,7 +31,7 @@ class MovieInfoHelper(
         binding.ivReservationPoster.setImageDrawable(poster)
         binding.tvReservationTitle.text = title
         binding.tvReservationScreeningDate.text =
-            activity.resources.getString(R.string.movie_screening_date, startDate, endDate)
+            activity.resources.getString(R.string.movie_reservation_screening_date, startDate, endDate)
         binding.tvReservationRunningTime.text =
             activity.getString(R.string.movie_running_time).format(runningTime)
     }

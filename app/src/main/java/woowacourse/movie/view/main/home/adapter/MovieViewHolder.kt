@@ -3,27 +3,16 @@ package woowacourse.movie.view.main.home.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import woowacourse.movie.R
 import woowacourse.movie.databinding.ItemMovieBinding
 import woowacourse.movie.model.movie.Movie
-import woowacourse.movie.view.util.ReservationUiFormatter
 
 class MovieViewHolder(
     private val binding: ItemMovieBinding,
     private val clickListener: MovieReservationListener,
 ) : RecyclerView.ViewHolder(binding.root) {
     fun bind(movie: Movie) {
-        binding.tvMovieTitle.text = movie.title
-        binding.ivMoviePoster.setImageResource(movie.poster)
-        binding.tvMovieScreeningDate.text =
-            itemView.context.getString(
-                R.string.movie_screening_date,
-                ReservationUiFormatter.localDateToUI(movie.startDate),
-                ReservationUiFormatter.localDateToUI(movie.endDate),
-            )
-        binding.tvMovieRunningTime.text =
-            itemView.context.getString(R.string.movie_running_time, movie.runningTime)
-        binding.btnMovieReservation.setOnClickListener { clickListener.onReservationClick(movie) }
+        binding.movie = movie
+        binding.movieReservationListener = clickListener
     }
 
     companion object {
